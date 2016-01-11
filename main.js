@@ -34,7 +34,7 @@ function updateSack(){
 
 function updateDate(){
 	d = new Date();
-	document.getElementById("date").innerHTML = d
+	document.getElementById("date").innerHTML = d.getDate()
 }
 
 //updateSack();
