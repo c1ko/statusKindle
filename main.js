@@ -13,7 +13,7 @@ function updateSack(){
 					month = ds.substring(4, 6)
 					day = ds.substring(6, 8)
 
-					thatdate = day + "/" + month + "/" + year
+					thatdate = day + "." + month + "." + year
 					md = new Date(year, month, day, 0, 0, 0, 0).getTime();	
 					cd = new Date().getTime()	
 					if(md-cd > 0){ //Chose the first one that is not in the past
@@ -34,7 +34,7 @@ function updateSack(){
 
 function updateDate(){
 	d = new Date();
-	document.getElementById("date").innerHTML = d.getDate()+1 + "/" + d.getMonth()+1 + "/" + d.getFullYear();
+	document.getElementById("date").innerHTML = d.getDate()+1 + "." + d.getMonth()+1 + "." + d.getFullYear();
 }
 
 //updateSack();
