@@ -38,18 +38,18 @@ function updateDate(){
 	document.getElementById("date").innerHTML = d.getDate()+1 + "/" + d.getMonth()+1 + "/" + d.getFullYear();
 }
 
-updateSack();
+//updateSack();
 updateDate();
 
 
 document.onreadystatechange = function() {
 	var state = document.readyState;
 	if(state == 'complete') {
-		updateSack();
+		//updateSack();
 		updateDate();
 		
 		setInterval(function(){
-			updateSack();
+			//updateSack();
 			updateDate();
 		}, 1000*60*30); //Update every 30 minutes
 	}
