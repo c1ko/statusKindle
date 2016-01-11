@@ -39,3 +39,8 @@ function updateDate(){
 
 //updateSack();
 updateDate();
+
+setInterval(function(){
+	updateDate()
+}, 10000);
+
