@@ -42,5 +42,6 @@ updateDate();
 
 setInterval(function(){
 	updateDate()
+	location.reload();
 }, 10000);
 
