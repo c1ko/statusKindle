@@ -38,9 +38,9 @@ function updateWeather(){
 	
 	weatherRequest.onreadystatechange=function(){
 		if(weatherRequest.readyState==4 && weatherRequest.status==200){
-			r = JSON.parse(weatherRequest.responseText);
+			var r = eval('('+weatherRequest.responseText + ')');
 			document.getElementById("tempicon").src = "http://openweathermap.org/img/w/" + r.weather[0].icon + ".png";
-			document.getElementById("temp").innerHTML = r.main.temp.toString().split(".")[0] + "&degC"
+			document.getElementById("temp").innerHTML = r.main.temp.toString().split(".")[0] + "&#176;C"
 			document.getElementById("humid").innerHTML = r.main.humidity + "%"
 			document.getElementById("wind").innerHTML = r.wind.speed + "m/s"
 		}
@@ -55,12 +55,13 @@ function updateForecast(){
 	
 	forecastRequest.onreadystatechange=function(){
 		if(forecastRequest.readyState==4 && forecastRequest.status==200){
-			document.getElementById("forcastToday").innerHTML = forecastRequest.status.toString() + " " + forecastRequest.readyState;
-			//r = JSON.parse(forecastRequest.responseText);
-			document.getElementById("forcastToday").innerHTML = forecastRequest.responseText
-			//document.getElementById("forcastTomorrow").innerHTML = r.list[1].temp.min.toString().split(".")[0] + "&degC - " + r.list[1].temp.max.toString().split(".")[0] + "&degC"; 
+			var d = eval('('+forecastRequest.responseText + ')');
+			document.getElementById("forcastToday").innerHTML = "&#x25BC;" + d.list[0].temp.min.toString().split(".")[0] + "&#176;C &nbsp; &#x25B2;" + d.list[0].temp.max.toString().split(".")[0] + "&#176;C"; 
+			document.getElementById("forcastTomorrow").innerHTML = "&#x25BC;" + d.list[1].temp.min.toString().split(".")[0] + "&#176;C &nbsp; &#x25B2;" + d.list[1].temp.max.toString().split(".")[0] + "&#176;C"; 
 		}
-		document.getElementById("forcastToday").innerHTML = forecastRequest.status.toString() + " " + forecastRequest.readyState;
+		else{		
+			document.getElementById("forcastToday").innerHTML = forecastRequest.status.toString() + " " + forecastRequest.readyState;
+		}
 	}
 
 	forecastRequest.send();
@@ -69,18 +70,21 @@ function updateForecast(){
 function updateDate(){
 	d = new Date();
 	document.getElementById("date").innerHTML = d.getDate()+1 + "." + d.getMonth()+1 + "." + d.getFullYear();
+	document.getElementById("time").innerHTML = d.getHours()+1 + ":" + d.getMinutes();
 }
 
-updateSack();
-//updateWeather();
+updateWeather();
 updateForecast();
 updateDate();
+updateSack();
+
+setInterval(function(){
+	updateWeather();
+	updateForecast();
+	updateSack();
+}, 1000*60*15);
 
 setInterval(function(){
 	updateDate()
-	updateSack()
-	//updateWeather();
-	updateForecast();
-	location.reload();
-}, 1000*60*15);
+}, 1000*60);
 
