@@ -34,7 +34,7 @@ function updateSack(){
 
 function updateWeather(){
 	weatherRequest = new XMLHttpRequest();
-	weatherRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?id=2950699&appid=79dc20bc286d7dbcfd63ba90fc11d637&units=metric")
+	weatherRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?id=2950699&appid=0f2750553f3fcb623ea3026cf665a2ac&units=metric")
 	
 	weatherRequest.onreadystatechange=function(){
 		if(weatherRequest.readyState==4 && weatherRequest.status==200){
@@ -70,15 +70,15 @@ function updateDate(){
 	document.getElementById("date").innerHTML = d.getDate()+1 + "." + d.getMonth()+1 + "." + d.getFullYear();
 }
 
-//updateSack();
-//updateWeather();
+updateSack();
+updateWeather();
 updateForecast();
-//updateDate();
+updateDate();
 
 setInterval(function(){
-	//updateDate()
-	//updateSack()
-	//updateWeather();
+	updateDate()
+	updateSack()
+	updateWeather();
 	updateForecast();
 	location.reload();
 }, 1000*60*15);
