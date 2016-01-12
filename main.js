@@ -54,7 +54,7 @@ function updateForecast(){
 	forecastRequest.open("GET", "http://api.openweathermap.org/data/2.5/forecast/daily?id=2950699&appid=0f2750553f3fcb623ea3026cf665a2ac&units=metric")
 	
 	forecastRequest.onreadystatechange=function(){
-		if(forecastRequest.readyState==3 && forecastRequest.status==200){
+		if(forecastRequest.readyState==4 && forecastRequest.status==200){
 			r = JSON.parse(forecastRequest.responseText);
 			document.getElementById("forcastToday").innerHTML = r.list[0].temp.min.toString().split(".")[0] + "&degC - " + r.list[0].temp.max.toString().split(".")[0] + "&degC";
 			document.getElementById("forcastTomorrow").innerHTML = r.list[1].temp.min.toString().split(".")[0] + "&degC - " + r.list[1].temp.max.toString().split(".")[0] + "&degC"; 
