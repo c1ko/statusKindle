@@ -59,6 +59,9 @@ function updateForecast(){
 			document.getElementById("forcastToday").innerHTML = r.list[0].temp.min.toString().split(".")[0] + "&degC - " + r.list[0].temp.max.toString().split(".")[0] + "&degC";
 			document.getElementById("forcastTomorrow").innerHTML = r.list[1].temp.min.toString().split(".")[0] + "&degC - " + r.list[1].temp.max.toString().split(".")[0] + "&degC"; 
 		}
+		else if(forecastRequest.status==401){
+			document.getElementById("forcastToday").innerHTML = "Unauth"
+		}
 	}
 
 	forecastRequest.send();
@@ -72,13 +75,13 @@ function updateDate(){
 updateSack();
 updateDate();
 updateWeather();
-//updateForecast();
+updateForecast();
 
 setInterval(function(){
 	updateDate()
 	updateSack()
 	updateWeather();
-	//updateForecast();
+	updateForecast();
 	location.reload();
 }, 1000*60*15);
 
