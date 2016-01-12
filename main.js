@@ -72,13 +72,13 @@ function updateDate(){
 updateSack();
 updateDate();
 updateWeather();
-updateForecast();
+//updateForecast();
 
 setInterval(function(){
 	updateDate()
 	updateSack()
 	updateWeather();
-	updateForecast();
+	//updateForecast();
 	location.reload();
 }, 1000*60*15);
 
