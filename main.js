@@ -55,10 +55,9 @@ function updateForecast(){
 	
 	forecastRequest.onreadystatechange=function(){
 		if(forecastRequest.readyState==4 && forecastRequest.status==200){
-			document.getElementById("forcastToday").innerHTML = forecastRequest.status.toString() + " " + forecastRequest.readyState;
 			r = JSON.parse(forecastRequest.responseText);
-			document.getElementById("forcastToday").innerHTML = r.list[0].temp.min.toString().split(".")[0] + "&degC - " + r.list[0].temp.max.toString().split(".")[0] + "&degC";
-			document.getElementById("forcastTomorrow").innerHTML = r.list[1].temp.min.toString().split(".")[0] + "&degC - " + r.list[1].temp.max.toString().split(".")[0] + "&degC"; 
+			document.getElementById("forcastToday").innerHTML = r.list[0].temp.min.toString();
+			//document.getElementById("forcastTomorrow").innerHTML = r.list[1].temp.min.toString().split(".")[0] + "&degC - " + r.list[1].temp.max.toString().split(".")[0] + "&degC"; 
 		}
 		document.getElementById("forcastToday").innerHTML = forecastRequest.status.toString() + " " + forecastRequest.readyState;
 	}
