@@ -77,6 +77,8 @@ updateForecast();
 setInterval(function(){
 	updateDate()
 	updateSack()
+	updateWeather();
+	updateForecast();
 	location.reload();
 }, 1000*60*15);
 
