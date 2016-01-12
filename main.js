@@ -51,7 +51,7 @@ function updateWeather(){
 
 function updateForecast(){
 	forecastRequest = new XMLHttpRequest();
-	forecastRequest.open("GET", "http://api.openweathermap.org/data/2.5/forecast/daily?id=2950699&appid=79dc20bc286d7dbcfd63ba90fc11d637&units=metric")
+	forecastRequest.open("GET", "http://api.openweathermap.org/data/2.5/forecast/daily?id=2950699&appid=0f2750553f3fcb623ea3026cf665a2ac&units=metric")
 	
 	forecastRequest.onreadystatechange=function(){
 		if(forecastRequest.readyState==4 && forecastRequest.status==200){
