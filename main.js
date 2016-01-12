@@ -32,6 +32,11 @@ function updateSack(){
 	sackRequest.send();
 }
 
+function updateWeather(){
+	sackRequest = new XMLHttpRequest();
+	http://api.openweathermap.org/data/2.5/weather?id=2950699&appid=79dc20bc286d7dbcfd63ba90fc11d637&units=metric
+}
+
 function updateDate(){
 	d = new Date();
 	document.getElementById("date").innerHTML = d.getDate()+1 + "." + d.getMonth()+1 + "." + d.getFullYear();
