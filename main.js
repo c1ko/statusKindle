@@ -33,8 +33,35 @@ function updateSack(){
 }
 
 function updateWeather(){
-	sackRequest = new XMLHttpRequest();
-	http://api.openweathermap.org/data/2.5/weather?id=2950699&appid=79dc20bc286d7dbcfd63ba90fc11d637&units=metric
+	weatherRequest = new XMLHttpRequest();
+	weatherRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?id=2950699&appid=79dc20bc286d7dbcfd63ba90fc11d637&units=metric")
+	
+	weatherRequest.onreadystatechange=function(){
+		if(weatherRequest.readyState==4 && weatherRequest.status==200){
+			r = JSON.parse(weatherRequest.responseText);
+			document.getElementById("tempicon").src = "http://openweathermap.org/img/w/" + r.weather[0].icon + ".png";
+			document.getElementById("temp").innerHTML = r.main.temp.toString().split(".")[0] + "&degC"
+			document.getElementById("humid").innerHTML = r.main.humidity + "%"
+			document.getElementById("wind").innerHTML = r.wind.speed + "m/s"
+		}
+	}
+
+	weatherRequest.send();
+}
+
+function updateForecast(){
+	forecastRequest = new XMLHttpRequest();
+	forecastRequest.open("GET", "http://api.openweathermap.org/data/2.5/forecast/daily?id=2950699&appid=79dc20bc286d7dbcfd63ba90fc11d637&units=metric")
+	
+	forecastRequest.onreadystatechange=function(){
+		if(forecastRequest.readyState==4 && forecastRequest.status==200){
+			r = JSON.parse(forecastRequest.responseText);
+			document.getElementById("forcastToday").innerHTML = r.list[0].temp.min.toString().split(".")[0] + "&degC - " + r.list[0].temp.max.toString().split(".")[0] + "&degC";
+			document.getElementById("forcastTomorrow").innerHTML = r.list[1].temp.min.toString().split(".")[0] + "&degC - " + r.list[1].temp.max.toString().split(".")[0] + "&degC"; 
+		}
+	}
+
+	forecastRequest.send();
 }
 
 function updateDate(){
@@ -44,6 +71,8 @@ function updateDate(){
 
 updateSack();
 updateDate();
+updateWeather();
+updateForecast();
 
 setInterval(function(){
 	updateDate()
