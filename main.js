@@ -70,15 +70,15 @@ function updateDate(){
 	document.getElementById("date").innerHTML = d.getDate()+1 + "." + d.getMonth()+1 + "." + d.getFullYear();
 }
 
-updateSack();
-updateWeather();
+//updateSack();
+//updateWeather();
 updateForecast();
-updateDate();
+//updateDate();
 
 setInterval(function(){
-	updateDate()
-	updateSack()
-	updateWeather();
+	//updateDate()
+	//updateSack()
+	//updateWeather();
 	updateForecast();
 	location.reload();
 }, 1000*60*15);
