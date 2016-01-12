@@ -70,7 +70,7 @@ function updateForecast(){
 function updateDate(){
 	d = new Date();
 	document.getElementById("date").innerHTML = d.getDate()+1 + "." + d.getMonth()+1 + "." + d.getFullYear();
-	document.getElementById("time").innerHTML = d.getHours()+1 + ":" + d.getMinutes();
+	document.getElementById("time").innerHTML = d.getHours() + ":" + d.getMinutes();
 }
 
 updateWeather();
