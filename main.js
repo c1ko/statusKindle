@@ -34,7 +34,7 @@ function updateSack(){
 
 function updateWeather(){
 	weatherRequest = new XMLHttpRequest();
-	weatherRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?id=2950699&appid=0f2750553f3fcb623ea3026cf665a2ac&units=metric")
+	weatherRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?id=2950699&appid=APPID&units=metric")
 	
 	weatherRequest.onreadystatechange=function(){
 		if(weatherRequest.readyState==4 && weatherRequest.status==200){
@@ -51,7 +51,7 @@ function updateWeather(){
 
 function updateForecast(){
 	forecastRequest = new XMLHttpRequest();
-	forecastRequest.open("GET", "http://api.openweathermap.org/data/2.5/forecast/daily?id=2950699&appid=0f2750553f3fcb623ea3026cf665a2ac&units=metric")
+	forecastRequest.open("GET", "http://api.openweathermap.org/data/2.5/forecast/daily?id=2950699&appid=APPID&units=metric")
 	
 	forecastRequest.onreadystatechange=function(){
 		if(forecastRequest.readyState==4 && forecastRequest.status==200){
