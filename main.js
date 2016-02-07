@@ -34,7 +34,7 @@ function updateSack(){
 
 function updateWeather(){
 	weatherRequest = new XMLHttpRequest();
-	weatherRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?id=2950699&appid=APPID&units=metric")
+	weatherRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?id=2950699&appid=&units=metric")
 	
 	weatherRequest.onreadystatechange=function(){
 		if(weatherRequest.readyState==4 && weatherRequest.status==200){
@@ -51,7 +51,7 @@ function updateWeather(){
 
 function updateForecast(){
 	forecastRequest = new XMLHttpRequest();
-	forecastRequest.open("GET", "http://api.openweathermap.org/data/2.5/forecast/daily?id=2950699&appid=APPID&units=metric")
+	forecastRequest.open("GET", "http://api.openweathermap.org/data/2.5/forecast/daily?id=2950699&appid=&units=metric")
 	
 	forecastRequest.onreadystatechange=function(){
 		if(forecastRequest.readyState==4 && forecastRequest.status==200){
@@ -69,7 +69,15 @@ function updateForecast(){
 
 function updateDate(){
 	d = new Date();
-	document.getElementById("date").innerHTML = d.getDate() + "." + parseInt(d.getMonth()+1) + "." + d.getFullYear();
+	var D = d.getDate().toString()
+	if(D.length == 1){
+		D = "0" + D;
+	}
+	var M = parseInt(d.getMonth()+1).toString()
+	if(M.length == 1){
+		M = "0" + M;
+	}
+	document.getElementById("date").innerHTML = D + "." + M + "." + d.getFullYear();
 	var h = d.getHours().toString()
 	if(h.length == 1){
 		h = "0" + h;
