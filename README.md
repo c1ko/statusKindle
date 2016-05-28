@@ -1,7 +1,7 @@
 # statusKindle
 _Simple Kindle Status Display_
 
-!(http://66.media.tumblr.com/24b0ea35e697bde32ba62c90701f4a95/tumblr_o0v1gfeZ5Q1tqypxno1_1280.jpg)
+![Image of the Project loaded on a Kindle](http://66.media.tumblr.com/24b0ea35e697bde32ba62c90701f4a95/tumblr_o0v1gfeZ5Q1tqypxno1_1280.jpg)
 
 Contains the worst ICAL parser ever seen.
 
