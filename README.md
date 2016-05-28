@@ -1,5 +1,6 @@
 # statusKindle
 _Simple Kindle Status Display_
+
 Contains the worst ICAL parser ever seen.
 
 ##Installation:
